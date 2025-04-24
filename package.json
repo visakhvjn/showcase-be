@@ -1,0 +1,17 @@
+{
+	"name": "my-express-app",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "A simple express app to get medium RSS feed to so that we can bypass CORS issue",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Visakh Vijayan",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^5.1.0"
+	}
+}
