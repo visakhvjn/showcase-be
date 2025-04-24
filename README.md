@@ -33,7 +33,7 @@ This is a simple Express.js backend application that fetches and serves the Medi
    npm start
    ```
 
-4. The server will run on `http://localhost:80`.
+4. The server will run on `http://localhost:3000`.
 
 ## API Endpoints
 
@@ -44,7 +44,7 @@ Fetches the Medium RSS feed for the user `@vjnvisakh`.
 #### Example Request:
 
 ```bash
-curl http://localhost/api/medium-feed
+curl http://localhost:3000/api/medium-feed
 ```
 
 #### Example Response:
