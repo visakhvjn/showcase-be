@@ -12,6 +12,6 @@ app.get('/api/medium-feed', async (req, res) => {
 	res.end(xmlData);
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
 	console.log('Server is running on port 3000');
 });
