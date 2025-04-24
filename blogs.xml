@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:cc="http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html">
+    <channel>
+        <title><![CDATA[Stories by Visakh Vijayan on Medium]]></title>
+        <description><![CDATA[Stories by Visakh Vijayan on Medium]]></description>
+        <link>https://medium.com/@vjnvisakh?source=rss-1871cc93b33f------2</link>
+        <image>
+            <url>https://cdn-images-1.medium.com/fit/c/150/150/1*hxDcq0hZJabp9ZC7GsYz6A.jpeg</url>
+            <title>Stories by Visakh Vijayan on Medium</title>
+            <link>https://medium.com/@vjnvisakh?source=rss-1871cc93b33f------2</link>
+        </image>
+        <generator>Medium</generator>
+        <lastBuildDate>Thu, 24 Apr 2025 04:31:36 GMT</lastBuildDate>
+        <atom:link href="https://medium.com/@vjnvisakh/feed" rel="self" type="application/rss+xml"/>
+        <webMaster><![CDATA[yourfriends@medium.com]]></webMaster>
+        <atom:link href="http://medium.superfeedr.com" rel="hub"/>
+        <item>
+            <title><![CDATA[LeetCode — Roman to Integer]]></title>
+            <link>https://vjnvisakh.medium.com/leetcode-roman-to-integer-5c655c5da5ae?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/5c655c5da5ae</guid>
+            <category><![CDATA[coding]]></category>
+            <category><![CDATA[leetcode]]></category>
+            <category><![CDATA[problem-solving]]></category>
+            <category><![CDATA[math]]></category>
+            <category><![CDATA[programming]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Wed, 16 Apr 2025 04:22:35 GMT</pubDate>
+            <atom:updated>2025-04-16T04:22:35.671Z</atom:updated>
+            <content:encoded><![CDATA[<h3>LeetCode — Roman to Integer</h3><p>I like to paste my LeetCode solutions here. It gives me a sense of progress, and it helps me achieve my goal of writing a blog daily.</p><p>Problem: <a href="https://leetcode.com/problems/roman-to-integer/">https://leetcode.com/problems/roman-to-integer/</a></p><h4>Solution — 5ms | O(n)</h4><pre>/**<br> * @param {string} s<br> * @return {number}<br> */<br>var romanToInt = function(s) {<br>    const strArr = s.split(&quot;&quot;);<br>    const strArrLen = strArr.length;<br>    const romanLiteralsMap = {<br>        &quot;I&quot;: 1,<br>        &quot;V&quot;: 5,<br>        &quot;X&quot;: 10,<br>        &quot;L&quot;: 50,<br>        &quot;C&quot;: 100,<br>        &quot;D&quot;: 500,<br>        &quot;M&quot;: 1000<br>    };<br><br>    let integerValue = 0;<br><br>    for (let i = 0; i &lt; strArrLen; i++) {<br>        if (romanLiteralsMap[strArr[i]] &lt; romanLiteralsMap[strArr[i + 1]]) {<br>            integerValue += (romanLiteralsMap[strArr[i + 1]] - romanLiteralsMap[strArr[i]]);<br>            i++;<br>        } else {<br>            integerValue += romanLiteralsMap[strArr[i]];<br>        }<br>    }<br><br>    return integerValue;<br>};</pre><p>The logic is simple. If the roman numeral is smaller than the one next to it, then subtract and skip the next numeral. Otherwise, add it up.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*CUNAYnfkMeLJVjm9PkdFSA.png" /></figure><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=5c655c5da5ae" width="1" height="1" alt="">]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[LeetCode — Palindrome]]></title>
+            <link>https://vjnvisakh.medium.com/leetcode-palindrome-265692b798f5?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/265692b798f5</guid>
+            <category><![CDATA[leetcode]]></category>
+            <category><![CDATA[coding]]></category>
+            <category><![CDATA[math]]></category>
+            <category><![CDATA[problem-solving]]></category>
+            <category><![CDATA[programming]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Tue, 15 Apr 2025 05:31:54 GMT</pubDate>
+            <atom:updated>2025-04-15T05:31:54.027Z</atom:updated>
+            <content:encoded><![CDATA[<h3>LeetCode — Palindrome</h3><p>I like to add different ways to solve problems on Leetcode. Today, we will see the Palindrome checker.</p><p>Problem: <a href="https://leetcode.com/problems/palindrome-number/">https://leetcode.com/problems/palindrome-number/</a></p><h4>Solution 1: 5ms | O(n)</h4><pre>/**<br> * @param {number} x<br> * @return {boolean}<br> */<br>var isPalindrome = function(x) {<br>    if (x &lt; 0) return false;<br><br>    let original = x;<br>    let reversed = 0;<br>    let lastDigit;<br><br>    while (x &gt; 0) {<br>        lastDigit = x % 10;<br>        reversed = reversed * 10 + lastDigit;<br>        x = Math.floor(x / 10);<br>    }<br><br>    return original === reversed;<br>};</pre><h4>Solution 2: 3ms | O(n)</h4><pre>/**<br> * @param {number} x<br> * @return {boolean}<br> */<br>var isPalindrome = function(x) {<br>    if (x &lt; 0) return false;<br><br>    let original = x;<br>    let reversed = 0;<br>    let lastDigit;<br><br>    while (x &gt; 0) {<br>        lastDigit = x % 10;<br>        reversed = reversed * 10 + lastDigit;<br>        x = Math.floor(x / 10);<br>    }<br><br>    return original === reversed;<br>};</pre><p><strong>Observation</strong>: The leetcode timings for time and space usage are not correct. It gives different readings for different submissions for the same solution.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*aV1jFQJtrAmrmAKBqVdevQ.png" /></figure><p>Will give less priority to the estimates from now on probably.</p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=265692b798f5" width="1" height="1" alt="">]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Leetcode problem- TwoSum]]></title>
+            <link>https://vjnvisakh.medium.com/leetcode-problem-twosum-11e864b8c300?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/11e864b8c300</guid>
+            <category><![CDATA[programming]]></category>
+            <category><![CDATA[leetcode]]></category>
+            <category><![CDATA[computer-science]]></category>
+            <category><![CDATA[problem-solving]]></category>
+            <category><![CDATA[coding]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Mon, 14 Apr 2025 14:50:52 GMT</pubDate>
+            <atom:updated>2025-04-14T14:50:52.979Z</atom:updated>
+            <content:encoded><![CDATA[<p>I like to solve some leetcode problems and see how much faster they can be made. Today, we are solving the TwoSum problem. Below are two of the solutions.</p><p>Problem: <a href="https://leetcode.com/problems/two-sum/description/">https://leetcode.com/problems/two-sum/description/</a></p><h4>Solution 1 — Runs in 35 ms — O(n²) time complexity</h4><pre>/**<br> * @param {number[]} nums<br> * @param {number} target<br> * @return {number[]}<br> */<br>var twoSum = function(nums, target) {<br>    let map = {};<br><br>    for (let i = 0; i &lt; nums.length; i++) {<br>        let needed = target - nums[i];<br><br>        if (map[needed] !== undefined) {<br>            return [map[needed], i];<br>        } else {<br>            map[nums[i]] = i;<br>        }<br>    }<br><br>    return [];<br>};</pre><h4>Solution 2 — Runs in 1 ms — O(n) time complexity</h4><pre>/**<br> * @param {number[]} nums<br> * @param {number} target<br> * @return {number[]}<br> */<br>var twoSum = function(nums, target) {<br>    let map = {};<br><br>    for (let i = 0; i &lt; nums.length; i++) {<br>        let needed = target - nums[i];<br><br>        if (map[needed] !== undefined) {<br>            return [map[needed], i];<br>        } else {<br>            map[nums[i]] = i;<br>        }<br>    }<br><br>    return [];<br>};</pre><p>It feels so good when your solution becomes faster!!!</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*nUu9KcgnjeoRG58pebpEqA.png" /></figure><p>And the happiness feeling. Little drops of joy!</p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=11e864b8c300" width="1" height="1" alt="">]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[ What If Gravity Just… Stopped for 5 Seconds?]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/what-if-gravity-just-stopped-for-5-seconds-3f612c1ab17c?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/1600/0*1mD1v05M40QXgm8u.jpg" width="1600"></a></p><p class="medium-feed-snippet">Have you ever stopped to think about what keeps you grounded&#x200A;&#x2014;&#x200A;literally? Gravity is one of those things we never question, but what if it&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/what-if-gravity-just-stopped-for-5-seconds-3f612c1ab17c?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/what-if-gravity-just-stopped-for-5-seconds-3f612c1ab17c?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/3f612c1ab17c</guid>
+            <category><![CDATA[physics]]></category>
+            <category><![CDATA[curious]]></category>
+            <category><![CDATA[facts]]></category>
+            <category><![CDATA[gravity]]></category>
+            <category><![CDATA[science]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Tue, 08 Apr 2025 11:20:35 GMT</pubDate>
+            <atom:updated>2025-04-08T11:20:35.840Z</atom:updated>
+        </item>
+        <item>
+            <title><![CDATA[The Power of Planning: Why Some People Thrive on Structure and Predictability]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/the-power-of-planning-why-some-people-thrive-on-structure-and-predictability-52fb87e61c75?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/1400/0*Bqh9X3nS2asMpvMh.jpg" width="1400"></a></p><p class="medium-feed-snippet">In a world full of chaos and uncertainty, there are individuals who find solace in planning, organization, and timely execution. These&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/the-power-of-planning-why-some-people-thrive-on-structure-and-predictability-52fb87e61c75?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/the-power-of-planning-why-some-people-thrive-on-structure-and-predictability-52fb87e61c75?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/52fb87e61c75</guid>
+            <category><![CDATA[lessons]]></category>
+            <category><![CDATA[optimization]]></category>
+            <category><![CDATA[planning]]></category>
+            <category><![CDATA[life]]></category>
+            <category><![CDATA[productivity]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Thu, 03 Apr 2025 09:04:46 GMT</pubDate>
+            <atom:updated>2025-04-03T09:04:46.970Z</atom:updated>
+        </item>
+        <item>
+            <title><![CDATA[Why You Should Read the Bhagavad Gita & What It’s All About]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/why-you-should-read-the-bhagavad-gita-what-its-all-about-4fa951c96991?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/741/0*u3PAQdFZgd85Hndj.png" width="741"></a></p><p class="medium-feed-snippet">The Bhagavad Gita, often called the Gita, is one of the most revered scriptures in Hindu philosophy. It is more than just a religious text&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/why-you-should-read-the-bhagavad-gita-what-its-all-about-4fa951c96991?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/why-you-should-read-the-bhagavad-gita-what-its-all-about-4fa951c96991?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/4fa951c96991</guid>
+            <category><![CDATA[india]]></category>
+            <category><![CDATA[spiritual]]></category>
+            <category><![CDATA[lessons]]></category>
+            <category><![CDATA[life]]></category>
+            <category><![CDATA[peace]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Tue, 01 Apr 2025 03:27:23 GMT</pubDate>
+            <atom:updated>2025-04-01T03:27:23.751Z</atom:updated>
+        </item>
+        <item>
+            <title><![CDATA[Columbia Student Suspended Over AI Interview Tool: A Debate on Ethics and Innovation]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/columbia-student-suspended-over-ai-interview-tool-a-debate-on-ethics-and-innovation-97cf9ddec3d9?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/1280/0*Vb_0ZNzXToV_fnGT" width="1280"></a></p><p class="medium-feed-snippet">In a world where artificial intelligence is revolutionizing industries, a Columbia University student found himself at the center of&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/columbia-student-suspended-over-ai-interview-tool-a-debate-on-ethics-and-innovation-97cf9ddec3d9?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/columbia-student-suspended-over-ai-interview-tool-a-debate-on-ethics-and-innovation-97cf9ddec3d9?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/97cf9ddec3d9</guid>
+            <category><![CDATA[coding]]></category>
+            <category><![CDATA[programming]]></category>
+            <category><![CDATA[tools]]></category>
+            <category><![CDATA[ai]]></category>
+            <category><![CDATA[tech]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Sat, 29 Mar 2025 05:32:22 GMT</pubDate>
+            <atom:updated>2025-03-29T05:32:22.199Z</atom:updated>
+        </item>
+        <item>
+            <title><![CDATA[The Illusion of Happiness: How Consumerism Traps Us on the Hedonic Treadmill]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/the-illusion-of-happiness-how-consumerism-traps-us-on-the-hedonic-treadmill-e8d14bd88eea?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/960/0*q2w9xKGTmtC3HTil" width="960"></a></p><p class="medium-feed-snippet">We&#x2019;ve all been there. The thrill of unboxing a brand-new phone, the rush of buying a luxury watch, or the dopamine hit from clicking &#x2018;Add&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/the-illusion-of-happiness-how-consumerism-traps-us-on-the-hedonic-treadmill-e8d14bd88eea?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/the-illusion-of-happiness-how-consumerism-traps-us-on-the-hedonic-treadmill-e8d14bd88eea?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/e8d14bd88eea</guid>
+            <category><![CDATA[simple]]></category>
+            <category><![CDATA[life]]></category>
+            <category><![CDATA[consumerism]]></category>
+            <category><![CDATA[hacks]]></category>
+            <category><![CDATA[minimalism]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Sat, 29 Mar 2025 02:37:16 GMT</pubDate>
+            <atom:updated>2025-03-29T02:37:16.503Z</atom:updated>
+        </item>
+        <item>
+            <title><![CDATA[The ChatGPT Addiction: Are We Becoming Too Dependent on AI?]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/the-chatgpt-addiction-are-we-becoming-too-dependent-on-ai-82c1ba1be5c4?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/1080/0*cNoA0cmBi_7Uutbr" width="1080"></a></p><p class="medium-feed-snippet">The rapid rise of AI-powered chatbots like ChatGPT has transformed the way we work, learn, and interact with technology. From automating&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/the-chatgpt-addiction-are-we-becoming-too-dependent-on-ai-82c1ba1be5c4?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/the-chatgpt-addiction-are-we-becoming-too-dependent-on-ai-82c1ba1be5c4?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/82c1ba1be5c4</guid>
+            <category><![CDATA[life]]></category>
+            <category><![CDATA[time]]></category>
+            <category><![CDATA[chatgpt]]></category>
+            <category><![CDATA[technology]]></category>
+            <category><![CDATA[ai]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Fri, 28 Mar 2025 04:32:11 GMT</pubDate>
+            <atom:updated>2025-03-28T04:32:11.363Z</atom:updated>
+        </item>
+        <item>
+            <title><![CDATA[The Rising Menace of MDMA in Kerala: A Crisis in the Making]]></title>
+            <description><![CDATA[<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://vjnvisakh.medium.com/the-rising-menace-of-mdma-in-kerala-a-crisis-in-the-making-7214a20519d0?source=rss-1871cc93b33f------2"><img src="https://cdn-images-1.medium.com/max/800/0*aeUSCx0AE8dLuoWR.jpg" width="800"></a></p><p class="medium-feed-snippet">Kerala, known for its lush landscapes, rich culture, and high literacy rate, is now grappling with a growing crisis&#x200A;&#x2014;&#x200A;the rampant rise of&#x2026;</p><p class="medium-feed-link"><a href="https://vjnvisakh.medium.com/the-rising-menace-of-mdma-in-kerala-a-crisis-in-the-making-7214a20519d0?source=rss-1871cc93b33f------2">Continue reading on Medium »</a></p></div>]]></description>
+            <link>https://vjnvisakh.medium.com/the-rising-menace-of-mdma-in-kerala-a-crisis-in-the-making-7214a20519d0?source=rss-1871cc93b33f------2</link>
+            <guid isPermaLink="false">https://medium.com/p/7214a20519d0</guid>
+            <category><![CDATA[kerala]]></category>
+            <category><![CDATA[addiction]]></category>
+            <category><![CDATA[india]]></category>
+            <category><![CDATA[drugs]]></category>
+            <category><![CDATA[awareness]]></category>
+            <dc:creator><![CDATA[Visakh Vijayan]]></dc:creator>
+            <pubDate>Thu, 27 Mar 2025 05:16:48 GMT</pubDate>
+            <atom:updated>2025-03-27T05:16:48.316Z</atom:updated>
+        </item>
+    </channel>
+</rss>
